@@ -1,6 +1,4 @@
 import { Player } from './player';
-import { Host } from './host';
-import { Gameplay } from './gameplay';
 import { getRandomNumber } from './randomizer';
 
 export class Referee
@@ -11,14 +9,25 @@ export class Referee
     playerWhoServes:string;
     playerWhoShoots:string;
 
+    currentMatchScore_1:number;
+    currentMatchScore_2:number;
+
+    currentMatchSets_1:number;
+    currentMatchSets_2:number;
 
     constructor()
     {        
         this.coinFlip = 0;
         this.numberOfSets = 0;
+
+        this.currentMatchScore_1 = 0;
+        this.currentMatchScore_2 = 0;
+
+        this.currentMatchSets_1 = 0;
+        this.currentMatchSets_2 = 0;
     }
 
-    WhoGoesFirst(p_1:Player, p_2:Player):string
+    WhoGoesFirst(player_1:Player, player_2:Player):string //Determines Who Serves First And Simulates First Shot
     {
         this.coinFlip = getRandomNumber(2);
 
@@ -26,108 +35,71 @@ export class Referee
         let whoGoesSecond: Player;
 
         if (this.coinFlip > 1) {
-            whoGoesFirst = p_1;
-            whoGoesSecond = p_2;
+            whoGoesFirst = player_1;
+            whoGoesSecond = player_2;
         } else {
-            whoGoesFirst = p_2;
-            whoGoesSecond = p_1;
+            whoGoesFirst = player_2;
+            whoGoesSecond = player_1;
         }
 
         this.playerWhoServes = this.playerWhoShoots = whoGoesFirst.name;
-        whoGoesSecond.Defend(whoGoesFirst.Throw(), whoGoesFirst);
+  
+        this.GivePoint(whoGoesSecond.Defend(whoGoesFirst.Throw()));
+
         this.playerWhoShoots = whoGoesSecond.name;
+
         return this.playerWhoShoots;
-
-        // if(this.coinFlip > 1)
-        // {
-        //     this.playerWhoServes = p_1.name;
-        //     this.playerWhoShoots = p_1.name; //For The Sake Of Clarity
-
-        //     p_2.Defend(p_1.Throw(), p_1);            
-        //     console.log(p_1.name + " Shoots.");
-
-        //     this.playerWhoShoots = p_2.name;
-
-        //     return this.playerWhoShoots;
-        // }else
-        // {
-        //     this.playerWhoServes = p_2.name;
-        //     this.playerWhoShoots = p_2.name;
-
-        //     p_1.Defend(p_2.Throw(), p_2);
-        //     console.log(p_2.name + " Shoots.");
-
-        //     this.playerWhoShoots = p_1.name;
-
-        //     return this.playerWhoShoots;
-        // }
     }
 
-    MatchLoop(p_1:Player, p_2:Player)
+    private setStillRunning():boolean
     {
-        while(((p_1.score || p_2.score) < 6 ) && ((p_1.sets && p_2.sets) < 2 ))
-        {
-            switch(this.playerWhoShoots)
-            {
-                case p_1.name:
-                    {
-                        p_2.Defend(p_1.Throw(), p_1);
-                        console.log(p_1.name + " Shoots.");
-            
-                        this.playerWhoShoots = p_1.name;
-                        
-                        break;
-                    }
-
-                case p_2.name:
-                    {
-                        p_1.Defend(p_2.Throw(), p_2);
-                        console.log(p_2.name + " Shoots.");
-        
-                        this.playerWhoShoots = p_2.name;
-                    
-                        break;
-                    }
-            }
-
-            console.log("Current Score: " + p_1.name + " " + p_1.score + " : " + p_2.name + " " + p_2.score);
-
-            this.CheckCurrentScore(p_1, p_2);
-            this.CheckForWinners(p_1, p_2);
-        }
-    }
-
-    private setStillRunning(firstScore, secondScore) {
-        
-    }
-
-    CheckCurrentScore(p_1:Player, p_2:Player)
+        return(this.currentMatchScore_1 || this.currentMatchScore_2) < 6; 
+    }  
+    private gameStillRunning():boolean
     {
-        if(p_1.score > 5)
-        {
-            console.log(p_1.name + " Wins The Set");
+         return(this.currentMatchSets_1 && this.currentMatchSets_2) < 2; 
+    }
 
-            p_1.score = 0;
-            p_1.sets++;
+    GivePoint(defenceFlag:boolean):void
+    {
+        if(defenceFlag)
+        {
+            this.currentMatchScore_1++;
         }else
         {
-            console.log( p_2 +" Wins The Set");
-
-            p_2.score = 0;
-            p_2.sets++;
+            this.currentMatchScore_2++;
         }
     }
 
-    CheckForWinners(p_1,p_2):string
+    CheckCurrentScore(player_1:Player, player_2:Player)
     {
-        if(p_1.sets > 1)
+        if(this.currentMatchScore_1 > 5)
         {
-            console.log(p_1.name + " Wins The Game!");
-            return p_1.name;
-        }else if (p_2.sets > 1)
+            console.log(player_1.name + " Wins The Set");
+
+            this.currentMatchScore_1 = 0;
+            this.currentMatchSets_1++;
+        }else
         {
-            console.log(p_2.name + " Wins The Game!");
-            return p_2.name;
+            console.log(player_2.name +" Wins The Set");
+
+            this.currentMatchScore_2 = 0;
+            this.currentMatchScore_2++;
+        }
+    }
+
+    CheckForWinners(player_1:Player,player_2:Player):string
+    {
+        if(this.currentMatchScore_1 > 1)
+        {
+            console.log(player_1.name + " Wins The Game!");
+
+            return player_1.name;
+        }else if (this.currentMatchSets_2 > 1)
+        {
+            console.log(player_2.name + " Wins The Game!");
+
+            return player_2.name;
         }
     }
 }
