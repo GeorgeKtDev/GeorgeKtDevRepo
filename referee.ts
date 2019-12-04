@@ -44,6 +44,12 @@ export class Referee
 
         this.playerWhoServes = this.playerWhoShoots = whoGoesFirst.name;
   
+        /* 
+        1) Some Player Throws
+        2) The Other One Defends
+        3) The Point Is Given To Whomever Wins The "Defend() Argument" 
+        */
+       
         this.GivePoint(whoGoesSecond.Defend(whoGoesFirst.Throw()));
 
         this.playerWhoShoots = whoGoesSecond.name;
@@ -100,6 +106,32 @@ export class Referee
             console.log(player_2.name + " Wins The Game!");
 
             return player_2.name;
+        }
+    }
+
+    MatchLoop(player_1:Player, player_2:Player)
+    {
+        while(this.setStillRunning() && this.gameStillRunning())
+        {
+            if(this.playerWhoShoots == player_1.name)
+            {
+                this.GivePoint(player_2.Defend(player_1.Throw()));
+                console.log(player_1.name + " Shoots.");
+            
+                this.playerWhoShoots = player_1.name;
+            }else
+            {
+                this.GivePoint(player_1.Defend(player_2.Throw()));
+                console.log(player_2.name + " Shoots.");
+
+                this.playerWhoShoots = player_2.name;
+            }           
+
+            console.log("Current Score: " + player_1.name + " " + this.currentMatchScore_1 + " : " 
+                                          + player_2.name + " " + this.currentMatchScore_2);
+
+            this.CheckCurrentScore(player_1, player_2);
+            this.CheckForWinners(player_1, player_2);
         }
     }
 }
