@@ -1,6 +1,7 @@
 import { Player } from './player';
 import { Host } from './host';
 import { Gameplay } from './gameplay';
+import { getRandomNumber } from './randomizer';
 
 export class Referee
 {
@@ -19,31 +20,47 @@ export class Referee
 
     WhoGoesFirst(p_1:Player, p_2:Player):string
     {
-        this.coinFlip = Math.random() * 10;
+        this.coinFlip = getRandomNumber(2);
 
-        if(this.coinFlip > 4)
-        {
-            this.playerWhoServes = p_1.name;
-            this.playerWhoShoots = p_1.name; //For The Sake Of Clarity
+        let whoGoesFirst: Player;
+        let whoGoesSecond: Player;
 
-            p_2.Defend(p_1.Throw(), p_1);            
-            console.log(p_1.name + " Shoots.");
-
-            this.playerWhoShoots = p_2.name;
-
-            return this.playerWhoShoots;
-        }else
-        {
-            this.playerWhoServes = p_2.name;
-            this.playerWhoShoots = p_2.name;
-
-            p_1.Defend(p_2.Throw(), p_2);
-            console.log(p_2.name + " Shoots.");
-
-            this.playerWhoShoots = p_1.name;
-
-            return this.playerWhoShoots;
+        if (this.coinFlip > 1) {
+            whoGoesFirst = p_1;
+            whoGoesSecond = p_2;
+        } else {
+            whoGoesFirst = p_2;
+            whoGoesSecond = p_1;
         }
+
+        this.playerWhoServes = this.playerWhoShoots = whoGoesFirst.name;
+        whoGoesSecond.Defend(whoGoesFirst.Throw(), whoGoesFirst);
+        this.playerWhoShoots = whoGoesSecond.name;
+        return this.playerWhoShoots;
+
+        // if(this.coinFlip > 1)
+        // {
+        //     this.playerWhoServes = p_1.name;
+        //     this.playerWhoShoots = p_1.name; //For The Sake Of Clarity
+
+        //     p_2.Defend(p_1.Throw(), p_1);            
+        //     console.log(p_1.name + " Shoots.");
+
+        //     this.playerWhoShoots = p_2.name;
+
+        //     return this.playerWhoShoots;
+        // }else
+        // {
+        //     this.playerWhoServes = p_2.name;
+        //     this.playerWhoShoots = p_2.name;
+
+        //     p_1.Defend(p_2.Throw(), p_2);
+        //     console.log(p_2.name + " Shoots.");
+
+        //     this.playerWhoShoots = p_1.name;
+
+        //     return this.playerWhoShoots;
+        // }
     }
 
     MatchLoop(p_1:Player, p_2:Player)
@@ -78,6 +95,10 @@ export class Referee
             this.CheckCurrentScore(p_1, p_2);
             this.CheckForWinners(p_1, p_2);
         }
+    }
+
+    private setStillRunning(firstScore, secondScore) {
+        
     }
 
     CheckCurrentScore(p_1:Player, p_2:Player)
