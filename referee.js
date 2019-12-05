@@ -83,12 +83,12 @@ var Referee = /** @class */ (function () {
             if (this.playerWhoShoots == player_1.name) {
                 console.log(player_1.name + " Shoots.");
                 this.GivePoint(player_1, player_2, player_2.Defend(player_1.Throw()));
-                this.playerWhoShoots = player_1.name;
+                this.playerWhoShoots = player_2.name;
             }
             else {
                 console.log(player_2.name + " Shoots.");
                 this.GivePoint(player_1, player_2, player_1.Defend(player_2.Throw()));
-                this.playerWhoShoots = player_2.name;
+                this.playerWhoShoots = player_1.name;
             }
             this.CheckCurrentScore(player_1, player_2);
             this.CheckForWinners(player_1, player_2);

@@ -20,6 +20,19 @@ import { getRandomNumber } from './randomizer';
 
      roster:Array<Player>;
 
+     //Competition Format
+
+     //Pre Semi Finals - 4 Pairs
+     //Semi Finals - 2 Pairs
+     //Finals - 1 Pair
+
+     pairsArray:Array<Array<Player>>;
+
+     pair_1:Array<Player>;
+     pair_2:Array<Player>;
+     pair_3:Array<Player>;
+     pair_4:Array<Player>;
+
      constructor()
      {
         this.Andreas_T = new Player();
@@ -51,8 +64,8 @@ import { getRandomNumber } from './randomizer';
          let pair:Array<Player> = new Array();
          let drawnPlayers;
 
-         pair[0] = this.roster[getRandomNumber(this.roster.length)]; //Picks A Random Player From The Roster
-         pair[1] = this.roster[getRandomNumber(this.roster.length)];
+         pair[0] = this.roster[getRandomNumber(this.roster.length - 1)]; //Picks A Random Player From The Roster
+         pair[1] = this.roster[getRandomNumber(this.roster.length - 1)];
 
          console.log("Starting Pair " + pair[0].name, pair[1].name);
 
@@ -67,6 +80,24 @@ import { getRandomNumber } from './randomizer';
             
          return pair;
      }
+
+     PSFDrawStage(pairsArray:Array<Array<Player>>)
+     {
+         for(let i = 0; i < 4; i++)
+         {
+             pairsArray[i] = this.MatchPair(this.roster);
+             console.log(pairsArray[i]);
+         }
+     }
+
+     CheckForDuplicates(pair:Array<Player>)
+     {
+         for(let i = 0; i < this.pairsArray.length;)
+         {
+
+         }
+     }
+
 
      AssignSkills(players:Array<Player>)
      {

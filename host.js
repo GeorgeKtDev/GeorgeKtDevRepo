@@ -28,8 +28,8 @@ var Host = /** @class */ (function () {
     Host.prototype.MatchPair = function (players) {
         var pair = new Array();
         var drawnPlayers;
-        pair[0] = this.roster[randomizer_1.getRandomNumber(this.roster.length)]; //Picks A Random Player From The Roster
-        pair[1] = this.roster[randomizer_1.getRandomNumber(this.roster.length)];
+        pair[0] = this.roster[randomizer_1.getRandomNumber(this.roster.length - 1)]; //Picks A Random Player From The Roster
+        pair[1] = this.roster[randomizer_1.getRandomNumber(this.roster.length - 1)];
         console.log("Starting Pair " + pair[0].name, pair[1].name);
         while (pair[0] == pair[1]) {
             pair[1] = this.roster[randomizer_1.getRandomNumber(this.roster.length)]; //Some Silly Mechanism to Avoid Duplicates
@@ -37,6 +37,16 @@ var Host = /** @class */ (function () {
         }
         console.log("Final Pair " + pair[0].name, pair[1].name);
         return pair;
+    };
+    Host.prototype.PSFDrawStage = function (pairsArray) {
+        for (var i = 0; i < 4; i++) {
+            pairsArray[i] = this.MatchPair(this.roster);
+            console.log(pairsArray[i]);
+        }
+    };
+    Host.prototype.CheckForDuplicates = function (pair) {
+        for (var i = 0; i < this.pairsArray.length;) {
+        }
     };
     Host.prototype.AssignSkills = function (players) {
         for (var i = 0; i < players.length; i++) {
