@@ -28,7 +28,7 @@ var Host = /** @class */ (function () {
     Host.prototype.MatchPair = function (players) {
         var pair = new Array();
         var drawnPlayers;
-        pair[0] = this.roster[randomizer_1.getRandomNumber(this.roster.length - 1)]; //Picks A Random Player From The Roster
+        pair[0] = this.roster[randomizer_1.getRandomNumber(this.roster.length)]; //Picks A Random Player From The Roster
         pair[1] = this.roster[randomizer_1.getRandomNumber(this.roster.length)];
         console.log("Starting Pair " + pair[0].name, pair[1].name);
         while (pair[0] == pair[1]) {

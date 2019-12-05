@@ -51,7 +51,7 @@ import { getRandomNumber } from './randomizer';
          let pair:Array<Player> = new Array();
          let drawnPlayers;
 
-         pair[0] = this.roster[getRandomNumber(this.roster.length - 1)]; //Picks A Random Player From The Roster
+         pair[0] = this.roster[getRandomNumber(this.roster.length)]; //Picks A Random Player From The Roster
          pair[1] = this.roster[getRandomNumber(this.roster.length)];
 
          console.log("Starting Pair " + pair[0].name, pair[1].name);
