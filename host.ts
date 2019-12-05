@@ -1,5 +1,6 @@
 import { Player } from './player';
 import { Referee } from './referee';
+import { getRandomNumber } from './randomizer';
 
  export class Host
  {
@@ -18,14 +19,6 @@ import { Referee } from './referee';
      crow_4:Referee;
 
      roster:Array<Player>;
-     drawNumbers:Array<number>;
-
-     pair_1:Array<number>;
-     pair_2:Array<number>;
-     pair_3:Array<number>;
-     pair_4:Array<number>;
-
-     pairWinner:string;
 
      constructor()
      {
@@ -38,64 +31,41 @@ import { Referee } from './referee';
         this.Theofilos = new Player();
         this.George = new Player();
 
-        this.roster = [this.Andreas_T, this.Thodoris, 
-                        this.Yiannis, this.Ioannis, 
-                        this.Konstantinos, this.Andreas_K, 
-                        this.Theofilos, this.George];  
-
-
         this.Andreas_T.name = "Andreas_T";
         this.Thodoris.name = 'Thodoris';
         this.Yiannis.name = 'Yiannis';
         this.Ioannis.name = 'Ioannis';
-        this.Konstantinos.name = 'Konsntantinos';
+        this.Konstantinos.name = 'Konstantinos';
         this.Andreas_K.name = 'Andreas_K';
         this.Theofilos.name = 'Theofilos';
         this.George.name = 'George';
 
-        // this.drawNumbers = [0, 0, 0, 0, 0, 0, 0, 0];
-
-        // this.pair_1[this.drawNumbers[0], this.drawNumbers[1]];
-        // this.pair_2[this.drawNumbers[2], this.drawNumbers[3]];
-        // this.pair_3[this.drawNumbers[4], this.drawNumbers[5]];
-        // this.pair_4[this.drawNumbers[6], this.drawNumbers[7]];
+        this.roster = [this.Andreas_T, this.Thodoris, 
+                        this.Yiannis, this.Ioannis, 
+                        this.Konstantinos, this.Andreas_K, 
+                        this.Theofilos, this.George];  
      }
 
-     DrawPhase(players:Array<Player>)
+     MatchPair(players:Array<Player>):Array<Player>
      {
-        for( let i = 0; i < this.drawNumbers.length; i++) //"let" Is Limited To Scope
-        {            
-            for(let j = 0; j < this.drawNumbers.length; j++)
-            {
-                if(j != i)
-                {
-                    if(this.drawNumbers[j] == this.drawNumbers[i]) // Supposedly Checks For Duplicates, Not Tested
-                    {
-                        this.drawNumbers[i] = this.drawNumbers[i] = Math.floor(Math.random());
+         let pair:Array<Player> = new Array();
+         let drawnPlayers;
 
-                        i = 0;
-                        j = 0;
-                    }
-                }
-            }
-        }
+         pair[0] = this.roster[getRandomNumber(this.roster.length - 1)]; //Picks A Random Player From The Roster
+         pair[1] = this.roster[getRandomNumber(this.roster.length)];
 
-        for( let i = 0; i < this.pair_1.length; i ++)
-        {
-            for(let j = 0; j < this.roster.length; i++)
-            {
-                if(this.roster[j].drawTag == this.drawNumbers[i])
-                {
-                    if(i == 0)
-                    {
-                        console.log(this.roster[j].name + " Has Been Drawn With ");
-                    }else
-                    {
-                        console.log(this.roster[j].name + ". ");
-                    }
-                }
-            }
-        }
+         console.log("Starting Pair " + pair[0].name, pair[1].name);
+
+         while(pair[0] == pair[1])
+         {
+            pair[1] = this.roster[getRandomNumber(this.roster.length)]; //Some Silly Mechanism to Avoid Duplicates
+
+            console.log("Evaluating Pair " + pair[0].name, pair[1].name);
+         }
+
+         console.log("Final Pair " + pair[0].name, pair[1].name);
+            
+         return pair;
      }
 
      AssignSkills(players:Array<Player>)

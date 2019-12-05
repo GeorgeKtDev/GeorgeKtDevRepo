@@ -98,7 +98,8 @@ export class Referee
         if(this.currentMatchScore_1 > 5)
         {
             console.log(player_1.name + " Wins The Set");
-            
+            console.log("Current Set: " + (this.currentMatchSets_1 + this.currentMatchSets_2 + 1));
+
             this.currentMatchSets_1++;
 
             this.currentMatchScore_1 = 0;
@@ -107,24 +108,23 @@ export class Referee
         else if(this.currentMatchScore_2 > 5)
         {
             console.log(player_2.name +" Wins The Set");
+            console.log("Current Set: " + (this.currentMatchSets_1 + this.currentMatchSets_2 + 1));
             
             this.currentMatchSets_2++;
 
             this.currentMatchScore_1 = 0;
             this.currentMatchScore_2 = 0;
         }
-
-        console.log("Current Set: " + (this.currentMatchSets_1 + this.currentMatchSets_2));
     }
 
     CheckForWinners(player_1:Player,player_2:Player):string
     {
-        if(this.currentMatchSets_1 > 2)
+        if(this.currentMatchSets_1 > 3)
         {
             console.log(player_1.name + " Wins The Game!");
 
             return player_1.name;
-        }else if (this.currentMatchSets_2 > 2)
+        }else if (this.currentMatchSets_2 > 3)
         {
             console.log(player_2.name + " Wins The Game!");
 
@@ -157,9 +157,9 @@ export class Referee
         }
     }
 
-    Round(player_1:Player, player_2:Player) 
+    Round(pair:Array<Player>) 
     {
-        this.WhoGoesFirst(player_1, player_2);
-        this.MatchLoop(player_1, player_2);       
+        this.WhoGoesFirst(pair[0], pair[1]);
+        this.MatchLoop(pair[0], pair[1]);       
     }
 }

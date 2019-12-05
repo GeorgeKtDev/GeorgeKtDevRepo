@@ -1,4 +1,6 @@
 # GeorgeKtDevRepo
 All-Purpose Repo
 
-To Be Updated
+Tennis Matchup & Game Simulation, 
+Work In Progress, 
+Set "gameplay.ts" As Starting Script.

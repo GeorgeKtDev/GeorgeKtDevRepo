@@ -9,4 +9,4 @@ var referee = new referee_1.Referee();
 player_1.name = "Default Player 1";
 player_2.name = "Default Player 2";
 var host = new host_1.Host();
-referee.Round(player_1, player_2);
+referee.Round(host.MatchPair(host.roster));

@@ -55,24 +55,25 @@ var Referee = /** @class */ (function () {
         console.log("Current Score: " + this.currentMatchScore_1 + " : " + this.currentMatchScore_2);
         if (this.currentMatchScore_1 > 5) {
             console.log(player_1.name + " Wins The Set");
+            console.log("Current Set: " + (this.currentMatchSets_1 + this.currentMatchSets_2 + 1));
             this.currentMatchSets_1++;
             this.currentMatchScore_1 = 0;
             this.currentMatchScore_2 = 0;
         }
         else if (this.currentMatchScore_2 > 5) {
             console.log(player_2.name + " Wins The Set");
+            console.log("Current Set: " + (this.currentMatchSets_1 + this.currentMatchSets_2 + 1));
             this.currentMatchSets_2++;
             this.currentMatchScore_1 = 0;
             this.currentMatchScore_2 = 0;
         }
-        console.log("Current Set: " + (this.currentMatchSets_1 + this.currentMatchSets_2));
     };
     Referee.prototype.CheckForWinners = function (player_1, player_2) {
-        if (this.currentMatchSets_1 > 2) {
+        if (this.currentMatchSets_1 > 3) {
             console.log(player_1.name + " Wins The Game!");
             return player_1.name;
         }
-        else if (this.currentMatchSets_2 > 2) {
+        else if (this.currentMatchSets_2 > 3) {
             console.log(player_2.name + " Wins The Game!");
             return player_2.name;
         }
@@ -93,9 +94,9 @@ var Referee = /** @class */ (function () {
             this.CheckForWinners(player_1, player_2);
         }
     };
-    Referee.prototype.Round = function (player_1, player_2) {
-        this.WhoGoesFirst(player_1, player_2);
-        this.MatchLoop(player_1, player_2);
+    Referee.prototype.Round = function (pair) {
+        this.WhoGoesFirst(pair[0], pair[1]);
+        this.MatchLoop(pair[0], pair[1]);
     };
     return Referee;
 }());

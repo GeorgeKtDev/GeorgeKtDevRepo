@@ -5,8 +5,6 @@ export class Player
     skill:number;
     name:string;
 
-    drawTag:number;
-
     constructor()
     {
         this.name = "Default Player";
