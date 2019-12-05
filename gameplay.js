@@ -9,4 +9,12 @@ var referee = new referee_1.Referee();
 player_1.name = "Default Player 1";
 player_2.name = "Default Player 2";
 var host = new host_1.Host();
+host.AssignSkills(host.roster);
+host.DrawPhase();
+function GameLoop(pairPointer) {
+    for (var i = 0; i < host.pairsArray.length; i++) {
+        referee.Round(host.pairsArray[i]);
+    }
+}
+//GameLoop(host.pairsPointer);
 referee.Round(host.MatchPair(host.roster));

@@ -1,6 +1,6 @@
 import { Player } from './player';
 import { Referee } from './referee';
-import { getRandomNumber } from './randomizer';
+import { getRandomNumber, FisherYatesShuffle } from './randomizer';
 
  export class Host
  {
@@ -13,11 +13,6 @@ import { getRandomNumber } from './randomizer';
      Theofilos:Player;
      George:Player;
 
-     crow_1:Referee;
-     crow_2:Referee;
-     crow_3:Referee;
-     crow_4:Referee;
-
      roster:Array<Player>;
 
      //Competition Format
@@ -27,6 +22,7 @@ import { getRandomNumber } from './randomizer';
      //Finals - 1 Pair
 
      pairsArray:Array<Array<Player>>;
+     pairsPointer:number;
 
      pair_1:Array<Player>;
      pair_2:Array<Player>;
@@ -35,6 +31,8 @@ import { getRandomNumber } from './randomizer';
 
      constructor()
      {
+        this.pairsArray = new Array<Array<Player>>();
+
         this.Andreas_T = new Player();
         this.Thodoris = new Player();
         this.Yiannis = new Player();
@@ -57,8 +55,9 @@ import { getRandomNumber } from './randomizer';
                         this.Yiannis, this.Ioannis, 
                         this.Konstantinos, this.Andreas_K, 
                         this.Theofilos, this.George];  
-     }
 
+        this.pairsPointer = 0;
+     }
      MatchPair(players:Array<Player>):Array<Player>
      {
          let pair:Array<Player> = new Array();
@@ -80,32 +79,41 @@ import { getRandomNumber } from './randomizer';
             
          return pair;
      }
-
-     PSFDrawStage(pairsArray:Array<Array<Player>>)
-     {
-         for(let i = 0; i < 4; i++)
-         {
-             pairsArray[i] = this.MatchPair(this.roster);
-             console.log(pairsArray[i]);
-         }
-     }
-
-     CheckForDuplicates(pair:Array<Player>)
-     {
-         for(let i = 0; i < this.pairsArray.length;)
-         {
-
-         }
-     }
-
-
      AssignSkills(players:Array<Player>)
      {
         for( let i = 0; i < players.length; i++)
         {
-            players[i].skill = (Math.random() * 10) + 1;
+            players[i].skill = getRandomNumber();
 
             console.log(players[i].name +  " Has Been Assigned " + players[i].skill + " Skill Points");  
         }
+     }
+     DrawPhase()
+     {
+         //console.log(this.roster);
+         //console.log(FisherYatesShuffle(this.roster));
+         FisherYatesShuffle(this.roster);
+
+         console.log("Pre Semi Finals Draw Phase Pairs: ");
+
+         this.pair_1 = [this.roster[0], this.roster[1]];
+         this.pairsArray.push(this.pair_1);
+
+         console.log(this.pair_1);
+
+         this.pair_2 = [this.roster[2], this.roster[3]];
+         this.pairsArray.push(this.pair_2);
+
+         console.log(this.pair_2);
+
+         this.pair_3 = [this.roster[4], this.roster[5]];
+         this.pairsArray.push(this.pair_3);
+
+         console.log(this.pair_3);
+
+         this.pair_4 = [this.roster[6], this.roster[7]];
+         this.pairsArray.push(this.pair_4);
+
+         console.log(this.pair_4);
      }
  }

@@ -9,6 +9,7 @@ var Referee = /** @class */ (function () {
         this.currentMatchScore_2 = 0;
         this.currentMatchSets_1 = 0;
         this.currentMatchSets_2 = 0;
+        this.qualifiedPlayers = new Array();
     }
     Referee.prototype.WhoGoesFirst = function (player_1, player_2) {
         this.coinFlip = randomizer_1.getRandomNumber(2);
@@ -33,6 +34,7 @@ var Referee = /** @class */ (function () {
         */
         this.GivePoint(player_1, player_2, whoGoesSecond.Defend(whoGoesFirst.Throw()));
         this.playerWhoShoots = whoGoesSecond.name;
+        console.log("Current Score: " + this.currentMatchScore_1 + " : " + this.currentMatchScore_2);
         return this.playerWhoShoots;
     };
     Referee.prototype.setStillRunning = function () {
@@ -69,13 +71,15 @@ var Referee = /** @class */ (function () {
         }
     };
     Referee.prototype.CheckForWinners = function (player_1, player_2) {
-        if (this.currentMatchSets_1 > 3) {
+        if (this.currentMatchSets_1 >= 2) {
             console.log(player_1.name + " Wins The Game!");
-            return player_1.name;
+            //this.currentMatchSets_1 = 0;
+            return player_1;
         }
-        else if (this.currentMatchSets_2 > 3) {
+        else if (this.currentMatchSets_2 >= 2) {
             console.log(player_2.name + " Wins The Game!");
-            return player_2.name;
+            //this.currentMatchSets_2 = 0;
+            return player_2;
         }
     };
     Referee.prototype.MatchLoop = function (player_1, player_2) {

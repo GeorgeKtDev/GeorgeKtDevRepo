@@ -12,4 +12,16 @@ import { Host } from './host';
     
     let host:Host = new Host();
 
+    host.AssignSkills(host.roster);
+    host.DrawPhase();
+
+    function GameLoop(pairPointer:number)
+    {
+        for(let i = 0; i < host.pairsArray.length;i++)
+        {
+            referee.Round(host.pairsArray[i]);
+        }
+    }
+
+    //GameLoop(host.pairsPointer);
     referee.Round(host.MatchPair(host.roster));

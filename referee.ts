@@ -1,5 +1,6 @@
 import { Player } from './player';
 import { getRandomNumber } from './randomizer';
+import { Host } from './host';
 
 export class Referee
 {
@@ -17,6 +18,8 @@ export class Referee
 
     shotPowerLogger:number;
 
+    qualifiedPlayers:Array<Player>;
+
     constructor()
     {        
         this.coinFlip = 0;
@@ -27,6 +30,8 @@ export class Referee
 
         this.currentMatchSets_1 = 0;
         this.currentMatchSets_2 = 0;
+
+        this.qualifiedPlayers = new Array<Player>();
     }
 
     WhoGoesFirst(player_1:Player, player_2:Player):string //Determines Who Serves First And Simulates First Shot
@@ -62,6 +67,8 @@ export class Referee
         this.GivePoint(player_1, player_2, whoGoesSecond.Defend(whoGoesFirst.Throw()));
 
         this.playerWhoShoots = whoGoesSecond.name;
+
+        console.log("Current Score: " + this.currentMatchScore_1 + " : " + this.currentMatchScore_2);
 
         return this.playerWhoShoots;
     }
@@ -117,18 +124,20 @@ export class Referee
         }
     }
 
-    CheckForWinners(player_1:Player,player_2:Player):string
+    CheckForWinners(player_1:Player,player_2:Player):Player
     {
-        if(this.currentMatchSets_1 > 3)
+        if(this.currentMatchSets_1 >= 2)
         {
             console.log(player_1.name + " Wins The Game!");
+            //this.currentMatchSets_1 = 0;
 
-            return player_1.name;
-        }else if (this.currentMatchSets_2 > 3)
+            return player_1;
+        }else if (this.currentMatchSets_2 >= 2)
         {
             console.log(player_2.name + " Wins The Game!");
+            //this.currentMatchSets_2 = 0;
 
-            return player_2.name;
+            return player_2;
         }
     }
 
@@ -157,7 +166,7 @@ export class Referee
         }
     }
 
-    Round(pair:Array<Player>) 
+    Round(pair:Array<Player>) //All "player_1" && "Player_2" Arguments Should Become "Pair" Arguments
     {
         this.WhoGoesFirst(pair[0], pair[1]);
         this.MatchLoop(pair[0], pair[1]);       
