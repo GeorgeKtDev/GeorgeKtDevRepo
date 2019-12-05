@@ -7,6 +7,12 @@ export class Player
 
     drawTag:number;
 
+    constructor()
+    {
+        this.name = "Default Player";
+        this.skill = getRandomNumber();
+    }
+
     Throw():number //Generates Player's Shot Power
     {
         return getRandomNumber();

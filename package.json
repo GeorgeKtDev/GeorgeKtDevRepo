@@ -1,0 +1,19 @@
+{
+  "name": "georgektdevrepo",
+  "version": "1.0.0",
+  "description": "All-Purpose Repo",
+  "main": "gameplay.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GeorgeKtDev/GeorgeKtDevRepo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GeorgeKtDev/GeorgeKtDevRepo/issues"
+  },
+  "homepage": "https://github.com/GeorgeKtDev/GeorgeKtDevRepo#readme"
+}

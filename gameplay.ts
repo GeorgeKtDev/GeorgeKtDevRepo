@@ -2,27 +2,14 @@ import { Player } from './player';
 import { Referee } from './referee';
 import { Host } from './host';
 
-export class Gameplay
-{  
-    player_1:Player;
-    player_2:Player;
+    let player_1:Player = new Player();
+    let player_2:Player = new Player();
+
+    let referee:Referee = new Referee();
+
+    player_1.name = "Default Player 1";
+    player_2.name = "Default Player 2";
     
-    referee:Referee;
-    host:Host;
+    let host:Host = new Host();
 
-    constructor()
-    {
-        this.player_1 = new Player();
-        this.player_2 = new Player();
-
-        this.referee = new Referee();
-
-        this.Round(this.player_1, this.player_2);
-    }
-
-    Round(player_1:Player, player_2:Player):void 
-    {
-        this.referee.WhoGoesFirst(player_1, player_2);
-        this.referee.MatchLoop(player_1, player_2);       
-    }
-}
+    referee.Round(player_1, player_2);

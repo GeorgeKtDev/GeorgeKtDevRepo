@@ -29,12 +29,22 @@ import { Referee } from './referee';
 
      constructor()
      {
-         this.roster = [this.Andreas_T, this.Thodoris, 
+        this.Andreas_T = new Player();
+        this.Thodoris = new Player();
+        this.Yiannis = new Player();
+        this.Ioannis = new Player();
+        this.Konstantinos = new Player();
+        this.Andreas_K = new Player();
+        this.Theofilos = new Player();
+        this.George = new Player();
+
+        this.roster = [this.Andreas_T, this.Thodoris, 
                         this.Yiannis, this.Ioannis, 
                         this.Konstantinos, this.Andreas_K, 
                         this.Theofilos, this.George];  
 
-        this.Andreas_T.name = 'Andreas_T';
+
+        this.Andreas_T.name = "Andreas_T";
         this.Thodoris.name = 'Thodoris';
         this.Yiannis.name = 'Yiannis';
         this.Ioannis.name = 'Ioannis';
@@ -43,12 +53,12 @@ import { Referee } from './referee';
         this.Theofilos.name = 'Theofilos';
         this.George.name = 'George';
 
-        this.drawNumbers = [0, 0, 0, 0, 0, 0, 0, 0];
+        // this.drawNumbers = [0, 0, 0, 0, 0, 0, 0, 0];
 
-        this.pair_1[this.drawNumbers[0], this.drawNumbers[1]];
-        this.pair_2[this.drawNumbers[2], this.drawNumbers[3]];
-        this.pair_3[this.drawNumbers[4], this.drawNumbers[5]];
-        this.pair_4[this.drawNumbers[6], this.drawNumbers[7]];
+        // this.pair_1[this.drawNumbers[0], this.drawNumbers[1]];
+        // this.pair_2[this.drawNumbers[2], this.drawNumbers[3]];
+        // this.pair_3[this.drawNumbers[4], this.drawNumbers[5]];
+        // this.pair_4[this.drawNumbers[6], this.drawNumbers[7]];
      }
 
      DrawPhase(players:Array<Player>)

@@ -15,6 +15,8 @@ export class Referee
     currentMatchSets_1:number;
     currentMatchSets_2:number;
 
+    shotPowerLogger:number;
+
     constructor()
     {        
         this.coinFlip = 0;
@@ -34,23 +36,30 @@ export class Referee
         let whoGoesFirst: Player;
         let whoGoesSecond: Player;
 
-        if (this.coinFlip > 1) {
+        if (this.coinFlip == 1) {
+
             whoGoesFirst = player_1;
             whoGoesSecond = player_2;
-        } else {
+
+            console.log("Coin Flipped At " + Math.floor(this.coinFlip) + ", " + whoGoesFirst.name + " Goes First");
+
+        } else {            
             whoGoesFirst = player_2;
             whoGoesSecond = player_1;
+
+            console.log("Coin Flipped At " + Math.floor(this.coinFlip) + ", " + whoGoesFirst.name + " Goes First");
         }
 
         this.playerWhoServes = this.playerWhoShoots = whoGoesFirst.name;
   
+        console.log(this.playerWhoShoots + " Shoots");
         /* 
         1) Some Player Throws
         2) The Other One Defends
         3) The Point Is Given To Whomever Wins The "Defend() Argument" 
         */
-       
-        this.GivePoint(whoGoesSecond.Defend(whoGoesFirst.Throw()));
+
+        this.GivePoint(player_1, player_2, whoGoesSecond.Defend(whoGoesFirst.Throw()));
 
         this.playerWhoShoots = whoGoesSecond.name;
 
@@ -59,49 +68,63 @@ export class Referee
 
     private setStillRunning():boolean
     {
-        return(this.currentMatchScore_1 || this.currentMatchScore_2) < 6; 
+        return((this.currentMatchScore_1 && this.currentMatchScore_2) < 6); 
     }  
+    
     private gameStillRunning():boolean
     {
-         return(this.currentMatchSets_1 && this.currentMatchSets_2) < 2; 
+         return((this.currentMatchSets_1 + this.currentMatchSets_2) < 2); 
     }
 
-    GivePoint(defenceFlag:boolean):void
+    GivePoint(player_1:Player, player_2:Player, defenceFlag:boolean):void
     {
         if(defenceFlag)
         {
+            console.log(player_1.name + " Gets The Point.");
+
             this.currentMatchScore_1++;
         }else
         {
+            console.log(player_2.name + " Gets The Point.");
+
             this.currentMatchScore_2++;
         }
     }
 
     CheckCurrentScore(player_1:Player, player_2:Player)
     {
+        console.log("Current Score: " + this.currentMatchScore_1 + " : " + this.currentMatchScore_2);
+
         if(this.currentMatchScore_1 > 5)
         {
             console.log(player_1.name + " Wins The Set");
+            
+            this.currentMatchSets_1++;
 
             this.currentMatchScore_1 = 0;
-            this.currentMatchSets_1++;
-        }else
+            this.currentMatchScore_2 = 0;
+        }
+        else if(this.currentMatchScore_2 > 5)
         {
             console.log(player_2.name +" Wins The Set");
+            
+            this.currentMatchSets_2++;
 
+            this.currentMatchScore_1 = 0;
             this.currentMatchScore_2 = 0;
-            this.currentMatchScore_2++;
         }
+
+        console.log("Current Set: " + (this.currentMatchSets_1 + this.currentMatchSets_2));
     }
 
     CheckForWinners(player_1:Player,player_2:Player):string
     {
-        if(this.currentMatchScore_1 > 1)
+        if(this.currentMatchSets_1 > 2)
         {
             console.log(player_1.name + " Wins The Game!");
 
             return player_1.name;
-        }else if (this.currentMatchSets_2 > 1)
+        }else if (this.currentMatchSets_2 > 2)
         {
             console.log(player_2.name + " Wins The Game!");
 
@@ -115,23 +138,28 @@ export class Referee
         {
             if(this.playerWhoShoots == player_1.name)
             {
-                this.GivePoint(player_2.Defend(player_1.Throw()));
                 console.log(player_1.name + " Shoots.");
+
+                this.GivePoint(player_1, player_2, player_2.Defend(player_1.Throw()));
             
                 this.playerWhoShoots = player_1.name;
             }else
             {
-                this.GivePoint(player_1.Defend(player_2.Throw()));
                 console.log(player_2.name + " Shoots.");
+
+                this.GivePoint(player_1, player_2, player_1.Defend(player_2.Throw()));
 
                 this.playerWhoShoots = player_2.name;
             }           
 
-            console.log("Current Score: " + player_1.name + " " + this.currentMatchScore_1 + " : " 
-                                          + player_2.name + " " + this.currentMatchScore_2);
-
             this.CheckCurrentScore(player_1, player_2);
             this.CheckForWinners(player_1, player_2);
         }
+    }
+
+    Round(player_1:Player, player_2:Player) 
+    {
+        this.WhoGoesFirst(player_1, player_2);
+        this.MatchLoop(player_1, player_2);       
     }
 }
