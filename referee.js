@@ -97,6 +97,7 @@ var Referee = /** @class */ (function () {
         console.log(this.pairWinner.name + " Wins The Game!");
         this.currentMatchSets_1 = 0;
         this.currentMatchSets_2 = 0;
+        console.log("Pair Winner " + this.pairWinner.name);
         this.qualifiedPlayers.push(this.pairWinner);
     };
     Referee.prototype.Round = function (pair) {

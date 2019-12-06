@@ -160,6 +160,7 @@ export class Referee
         this.currentMatchSets_1 = 0;
         this.currentMatchSets_2 = 0;
 
+        console.log("Pair Winner " + this.pairWinner.name);
         this.qualifiedPlayers.push(this.pairWinner);
     }
     Round(pair:Array<Player>)

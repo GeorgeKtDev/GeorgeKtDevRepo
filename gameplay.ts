@@ -12,18 +12,33 @@ import { Host } from './host';
     
     let host:Host = new Host();
 
+    referee.qualifiedPlayers = host.roster;
+
     host.AssignSkills(host.roster);
-    host.DrawPhase(host.roster);
 
-    SimulatePhase(host.pairsArray.length);
+    //host.DrawPhase(referee.qualifiedPlayers);
+    //referee.qualifiedPlayers = [];
 
-    function SimulatePhase(contestants:number)
+    SimulateTournament();
+    //SimulateMatches(host.pairsArray);
+    
+
+    function SimulateMatches(contestants:Array<Array<Player>>)
     {
         for(let i = 0; i < host.pairsArray.length;i++)
         {
             referee.Round(host.pairsArray[i]);
         }
-
-        console.log("Pre Semi Finals Phase Qualified Players: ");
         console.log(referee.qualifiedPlayers);
+    }
+
+    function SimulateTournament()
+    {
+        for(let i = 0; i < 3; i++)
+        {
+            host.DrawPhase(referee.qualifiedPlayers);
+            referee.qualifiedPlayers = [];
+
+            SimulateMatches(host.pairsArray);
+        }
     }

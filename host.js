@@ -47,14 +47,38 @@ var Host = /** @class */ (function () {
     };
     Host.prototype.DrawPhase = function (competitors) {
         randomizer_1.FisherYatesShuffle(competitors);
-        this.pair_1 = [competitors[0], competitors[1]];
-        this.pairsArray.push(this.pair_1);
-        this.pair_2 = [competitors[2], competitors[3]];
-        this.pairsArray.push(this.pair_2);
-        this.pair_3 = [competitors[4], competitors[5]];
-        this.pairsArray.push(this.pair_3);
-        this.pair_4 = [competitors[6], competitors[7]];
-        this.pairsArray.push(this.pair_4);
+        this.pairsArray = [];
+        switch (competitors.length) {
+            case 8:
+                {
+                    console.log("DRAW PHASE 8");
+                    this.pairsArray.push(this.pair_1);
+                    this.pairsArray[0] = [competitors[0], competitors[1]];
+                    this.pairsArray.push(this.pair_2);
+                    this.pairsArray[1] = [competitors[2], competitors[3]];
+                    this.pairsArray.push(this.pair_3);
+                    this.pairsArray[2] = [competitors[4], competitors[5]];
+                    this.pairsArray.push(this.pair_4);
+                    this.pairsArray[3] = [competitors[6], competitors[7]];
+                    break;
+                }
+            case 4:
+                {
+                    console.log("DRAW PHASE 4");
+                    this.pairsArray.push(this.pair_1);
+                    this.pairsArray[0] = [competitors[0], competitors[1]];
+                    this.pairsArray.push(this.pair_2);
+                    this.pairsArray[1] = [competitors[2], competitors[3]];
+                    break;
+                }
+            case 2:
+                {
+                    console.log("DRAW PHASE 2");
+                    this.pairsArray.push(this.pair_1);
+                    this.pairsArray[0] = [competitors[0], competitors[1]];
+                    break;
+                }
+        }
     };
     return Host;
 }());
