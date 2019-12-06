@@ -5,12 +5,6 @@ export class Player
     skill:number;
     name:string;
 
-    constructor()
-    {
-        this.name = "Default Player";
-        this.skill = getRandomNumber();
-    }
-
     Throw():number //Generates Player's Shot Power
     {
         return getRandomNumber();

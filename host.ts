@@ -22,7 +22,6 @@ import { getRandomNumber, FisherYatesShuffle } from './randomizer';
      //Finals - 1 Pair
 
      pairsArray:Array<Array<Player>>;
-     pairsPointer:number;
 
      pair_1:Array<Player>;
      pair_2:Array<Player>;
@@ -56,7 +55,6 @@ import { getRandomNumber, FisherYatesShuffle } from './randomizer';
                         this.Konstantinos, this.Andreas_K, 
                         this.Theofilos, this.George];  
 
-        this.pairsPointer = 0;
      }
      MatchPair(players:Array<Player>):Array<Player>
      {
@@ -88,32 +86,22 @@ import { getRandomNumber, FisherYatesShuffle } from './randomizer';
             console.log(players[i].name +  " Has Been Assigned " + players[i].skill + " Skill Points");  
         }
      }
-     DrawPhase()
+     DrawPhase(competitors:Array<Player>)//To Be More Dynamic
      {
-         //console.log(this.roster);
-         //console.log(FisherYatesShuffle(this.roster));
-         FisherYatesShuffle(this.roster);
+         FisherYatesShuffle(competitors);
 
-         console.log("Pre Semi Finals Draw Phase Pairs: ");
+        this.pair_1 = [competitors[0], competitors[1]];
+        this.pairsArray.push(this.pair_1);
 
-         this.pair_1 = [this.roster[0], this.roster[1]];
-         this.pairsArray.push(this.pair_1);
+        this.pair_2 = [competitors[2], competitors[3]];
+        this.pairsArray.push(this.pair_2);
 
-         console.log(this.pair_1);
+        this.pair_3 = [competitors[4], competitors[5]];
+        this.pairsArray.push(this.pair_3);
 
-         this.pair_2 = [this.roster[2], this.roster[3]];
-         this.pairsArray.push(this.pair_2);
+        this.pair_4 = [competitors[6], competitors[7]];
+        this.pairsArray.push(this.pair_4);
+        }
 
-         console.log(this.pair_2);
-
-         this.pair_3 = [this.roster[4], this.roster[5]];
-         this.pairsArray.push(this.pair_3);
-
-         console.log(this.pair_3);
-
-         this.pair_4 = [this.roster[6], this.roster[7]];
-         this.pairsArray.push(this.pair_4);
-
-         console.log(this.pair_4);
+         //console.log(this.pairsArray);
      }
- }
