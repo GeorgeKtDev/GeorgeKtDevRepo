@@ -1,8 +1,9 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var randomizer_1 = require("./randomizer");
 var Player = /** @class */ (function () {
-    function Player() {
+    function Player(name) {
+        this.name = name;
     }
     Player.prototype.Throw = function () {
         return randomizer_1.getRandomNumber();
@@ -13,3 +14,4 @@ var Player = /** @class */ (function () {
     return Player;
 }());
 exports.Player = Player;
+//# sourceMappingURL=player.js.map

@@ -1,30 +1,19 @@
 "use strict";
 exports.__esModule = true;
-var player_1 = require("./player");
 var randomizer_1 = require("./randomizer");
+var playerFactory_1 = require("./playerFactory");
 var Host = /** @class */ (function () {
     function Host() {
         this.pairsArray = new Array();
-        this.Andreas_T = new player_1.Player();
-        this.Thodoris = new player_1.Player();
-        this.Yiannis = new player_1.Player();
-        this.Ioannis = new player_1.Player();
-        this.Konstantinos = new player_1.Player();
-        this.Andreas_K = new player_1.Player();
-        this.Theofilos = new player_1.Player();
-        this.George = new player_1.Player();
-        this.Andreas_T.name = "Andreas_T";
-        this.Thodoris.name = 'Thodoris';
-        this.Yiannis.name = 'Yiannis';
-        this.Ioannis.name = 'Ioannis';
-        this.Konstantinos.name = 'Konstantinos';
-        this.Andreas_K.name = 'Andreas_K';
-        this.Theofilos.name = 'Theofilos';
-        this.George.name = 'George';
-        this.roster = [this.Andreas_T, this.Thodoris,
-            this.Yiannis, this.Ioannis,
-            this.Konstantinos, this.Andreas_K,
-            this.Theofilos, this.George];
+        this.roster = new Array();
+        this.roster = [playerFactory_1.CreatePlayer("Andreas_T"),
+            this.Thodoris = playerFactory_1.CreatePlayer("Thodoris"),
+            this.Yiannis = playerFactory_1.CreatePlayer("Yannis"),
+            this.Ioannis = playerFactory_1.CreatePlayer("Ioannis"),
+            this.Konstantinos = playerFactory_1.CreatePlayer("Konstantinos"),
+            this.Andreas_K = playerFactory_1.CreatePlayer("Andreas_K"),
+            this.Theofilos = playerFactory_1.CreatePlayer("Theofilos"),
+            this.George = playerFactory_1.CreatePlayer("George")];
     }
     Host.prototype.MatchPair = function (players) {
         var pair = new Array();
