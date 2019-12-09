@@ -6,14 +6,16 @@ var Host = /** @class */ (function () {
     function Host() {
         this.pairsArray = new Array();
         this.roster = new Array();
-        this.roster = [playerFactory_1.CreatePlayer("Andreas_T"),
+        this.roster = [
+            playerFactory_1.CreatePlayer("Andreas_T"),
             playerFactory_1.CreatePlayer("Thodoris"),
             playerFactory_1.CreatePlayer("Yannis"),
             playerFactory_1.CreatePlayer("Ioannis"),
             playerFactory_1.CreatePlayer("Konstantinos"),
             playerFactory_1.CreatePlayer("Andreas_K"),
             playerFactory_1.CreatePlayer("Theofilos"),
-            playerFactory_1.CreatePlayer("George")];
+            playerFactory_1.CreatePlayer("George")
+        ];
     }
     Host.prototype.MatchPair = function (players) {
         var pair = new Array();
