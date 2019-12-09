@@ -23,7 +23,6 @@ var Referee = /** @class */ (function () {
                 whoGoesFirst = pair[0];
                 whoGoesSecond = pair[1];
                 console.log("Coin Flipped At " + Math.floor(this.coinFlip) + ", " + whoGoesFirst.name + " Goes First");
-                //console.log("Coin Flipped At " + Math.floor(this.coinFlip) + ", " + whoGoesFirst.name + " Goes First");
             }
             else {
                 whoGoesFirst = pair[1];

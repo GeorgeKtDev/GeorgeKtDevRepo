@@ -55,9 +55,6 @@ export class Referee
                 whoGoesSecond = pair[1];
 
                 console.log("Coin Flipped At " + Math.floor(this.coinFlip) + ", " + whoGoesFirst.name + " Goes First");
-
-                //console.log("Coin Flipped At " + Math.floor(this.coinFlip) + ", " + whoGoesFirst.name + " Goes First");
-
             } else {            
                 whoGoesFirst = pair[1];
                 whoGoesSecond = pair[0];
@@ -68,6 +65,7 @@ export class Referee
             this.playerWhoServes = this.playerWhoShoots = whoGoesFirst.name;
     
             console.log(this.playerWhoShoots + " Shoots");
+            
             /* 
             1) Some Player Throws
             2) The Other One Defends

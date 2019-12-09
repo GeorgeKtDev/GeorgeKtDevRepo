@@ -7,13 +7,13 @@ var Host = /** @class */ (function () {
         this.pairsArray = new Array();
         this.roster = new Array();
         this.roster = [playerFactory_1.CreatePlayer("Andreas_T"),
-            this.Thodoris = playerFactory_1.CreatePlayer("Thodoris"),
-            this.Yiannis = playerFactory_1.CreatePlayer("Yannis"),
-            this.Ioannis = playerFactory_1.CreatePlayer("Ioannis"),
-            this.Konstantinos = playerFactory_1.CreatePlayer("Konstantinos"),
-            this.Andreas_K = playerFactory_1.CreatePlayer("Andreas_K"),
-            this.Theofilos = playerFactory_1.CreatePlayer("Theofilos"),
-            this.George = playerFactory_1.CreatePlayer("George")];
+            playerFactory_1.CreatePlayer("Thodoris"),
+            playerFactory_1.CreatePlayer("Yannis"),
+            playerFactory_1.CreatePlayer("Ioannis"),
+            playerFactory_1.CreatePlayer("Konstantinos"),
+            playerFactory_1.CreatePlayer("Andreas_K"),
+            playerFactory_1.CreatePlayer("Theofilos"),
+            playerFactory_1.CreatePlayer("George")];
     }
     Host.prototype.MatchPair = function (players) {
         var pair = new Array();

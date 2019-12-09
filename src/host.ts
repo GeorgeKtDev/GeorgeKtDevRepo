@@ -5,37 +5,29 @@ import { CreatePlayer } from './playerFactory';
 
  export class Host
  {
-     Andreas_T:Player;
-     Thodoris:Player;
-     Yiannis:Player;
-     Ioannis:Player;
-     Konstantinos:Player;
-     Andreas_K:Player;
-     Theofilos:Player;
-     George:Player;
-
      roster:Array<Player>;
-
-     pairsArray:Array<Array<Player>>;
 
      pair_1:Array<Player>;
      pair_2:Array<Player>;
      pair_3:Array<Player>;
      pair_4:Array<Player>;
 
+     pairsArray:Array<Array<Player>>;
+
      constructor()
      {
         this.pairsArray = new Array<Array<Player>>();
         this.roster = new Array<Player>();
 
-        this.roster = [CreatePlayer("Andreas_T"),
-        this.Thodoris = CreatePlayer("Thodoris"), 
-        this.Yiannis = CreatePlayer("Yannis"),
-        this.Ioannis = CreatePlayer("Ioannis"), 
-        this.Konstantinos = CreatePlayer("Konstantinos"),
-        this.Andreas_K = CreatePlayer("Andreas_K"), 
-        this.Theofilos = CreatePlayer("Theofilos"),
-        this.George = CreatePlayer("George")];  
+        this.roster = [
+        CreatePlayer("Andreas_T"),
+        CreatePlayer("Thodoris"), 
+        CreatePlayer("Yannis"),
+        CreatePlayer("Ioannis"), 
+        CreatePlayer("Konstantinos"),
+        CreatePlayer("Andreas_K"), 
+        CreatePlayer("Theofilos"),
+        CreatePlayer("George")];  
      }
      MatchPair(players:Array<Player>):Array<Player>
      {
@@ -67,7 +59,7 @@ import { CreatePlayer } from './playerFactory';
             console.log(players[i].name +  " Has Been Assigned " + players[i].skill + " Skill Points");  
         }
      }
-     DrawPhase(competitors:Array<Player>)
+     DrawPhase(competitors:Array<Player>) //Can Certainly Become More Dynamic
      {
         FisherYatesShuffle(competitors);
 

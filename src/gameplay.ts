@@ -2,10 +2,7 @@ import { Player } from './player';
 import { Referee } from './referee';
 import { Host } from './host';
 
-import {logToText } from './textLogger';
-
-    let referee:Referee = new Referee();
-    
+    let referee:Referee = new Referee();    
     let host:Host = new Host();
 
     referee.qualifiedPlayers = host.roster;
