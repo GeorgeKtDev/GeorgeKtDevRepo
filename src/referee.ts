@@ -1,7 +1,7 @@
 import { Player } from './player';
 import { getRandomNumber } from './randomizer';
 
-import { logToText } from './textLogger';
+import { logToFile } from './textLogger';
 
 export class Referee
 {
@@ -54,17 +54,18 @@ export class Referee
                 whoGoesFirst = pair[0];
                 whoGoesSecond = pair[1];
 
-                console.log("Coin Flipped At " + Math.floor(this.coinFlip) + ", " + whoGoesFirst.name + " Goes First");
+                logToFile("Coin Flipped At " + Math.floor(this.coinFlip) + ", " + whoGoesFirst.name + " Goes First");
+
             } else {            
                 whoGoesFirst = pair[1];
                 whoGoesSecond = pair[0];
 
-                console.log("Coin Flipped At " + Math.floor(this.coinFlip) + ", " + whoGoesFirst.name + " Goes First");
+                logToFile("Coin Flipped At " + Math.floor(this.coinFlip) + ", " + whoGoesFirst.name + " Goes First");
             }
 
             this.playerWhoServes = this.playerWhoShoots = whoGoesFirst.name;
     
-            console.log(this.playerWhoShoots + " Shoots");
+            logToFile(this.playerWhoShoots + " Shoots");
             
             /* 
             1) Some Player Throws
@@ -76,7 +77,7 @@ export class Referee
 
             this.playerWhoShoots = whoGoesSecond.name;
 
-            console.log("Current Score: " + this.currentMatchScore_1 + " : " + this.currentMatchScore_2);
+            logToFile("Current Score: " + this.currentMatchScore_1 + " : " + this.currentMatchScore_2);
 
             return this.playerWhoShoots;
         }
@@ -85,24 +86,24 @@ export class Referee
     {
         if(defenceFlag)
         {
-            console.log(pair[0].name + " Gets The Point.");
+            logToFile(pair[0].name + " Gets The Point.");
 
             this.currentMatchScore_1++;
         }else
         {
-            console.log(pair[1].name + " Gets The Point.");
+            logToFile(pair[1].name + " Gets The Point.");
 
             this.currentMatchScore_2++;
         }
     }
     CheckCurrentScore(pair:Array<Player>)
     {
-        console.log("Current Score: " + this.currentMatchScore_1 + " : " + this.currentMatchScore_2);
+        logToFile("Current Score: " + this.currentMatchScore_1 + " : " + this.currentMatchScore_2);
 
         if(this.currentMatchScore_1 > 5)
         {
-            console.log(pair[0].name + " Wins The Set");
-            console.log("Current Set: " + (this.currentMatchSets_1 + this.currentMatchSets_2 + 1));
+            logToFile(pair[0].name + " Wins The Set");
+            logToFile("Current Set: " + (this.currentMatchSets_1 + this.currentMatchSets_2 + 1));
 
             this.currentMatchSets_1++;
 
@@ -111,8 +112,8 @@ export class Referee
         }
         else if(this.currentMatchScore_2 > 5)
         {
-            console.log(pair[1].name +" Wins The Set");
-            console.log("Current Set: " + (this.currentMatchSets_1 + this.currentMatchSets_2 + 1));
+            logToFile(pair[1].name +" Wins The Set");
+            logToFile("Current Set: " + (this.currentMatchSets_1 + this.currentMatchSets_2 + 1));
             
             this.currentMatchSets_2++;
 
@@ -157,12 +158,12 @@ export class Referee
 
             this.CheckCurrentScore(pair);
         }
-        console.log(this.pairWinner.name + " Wins The Game!");
+        logToFile(this.pairWinner.name + " Wins The Game!");
 
         this.currentMatchSets_1 = 0;
         this.currentMatchSets_2 = 0;
 
-        console.log("Pair Winner " + this.pairWinner.name);
+        logToFile("Pair Winner " + this.pairWinner.name);
         this.qualifiedPlayers.push(this.pairWinner);
     }
     Round(pair:Array<Player>)

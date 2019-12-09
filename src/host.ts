@@ -2,6 +2,7 @@ import { Player } from './player';
 import { Referee } from './referee';
 import { getRandomNumber, FisherYatesShuffle } from './randomizer';
 import { CreatePlayer } from './playerFactory';
+import { logToFile } from './textLogger';
 
  export class Host
  {
@@ -37,16 +38,16 @@ import { CreatePlayer } from './playerFactory';
          pair[0] = this.roster[getRandomNumber(this.roster.length - 1)]; //Picks A Random Player From The Roster
          pair[1] = this.roster[getRandomNumber(this.roster.length - 1)];
 
-         console.log("Starting Pair " + pair[0].name, pair[1].name);
+         logToFile("Starting Pair " + pair[0].name + pair[1].name);
 
          while(pair[0] == pair[1])
          {
             pair[1] = this.roster[getRandomNumber(this.roster.length)]; //Some Silly Mechanism to Avoid Duplicates
 
-            console.log("Evaluating Pair " + pair[0].name, pair[1].name);
+            logToFile("Evaluating Pair " + pair[0].name + pair[1].name);
          }
 
-         console.log("Final Pair " + pair[0].name, pair[1].name);
+         logToFile("Final Pair " + pair[0].name + pair[1].name);
             
          return pair;
      }
@@ -56,7 +57,7 @@ import { CreatePlayer } from './playerFactory';
         {
             players[i].skill = getRandomNumber();
 
-            console.log(players[i].name +  " Has Been Assigned " + players[i].skill + " Skill Points");  
+            logToFile(players[i].name +  " Has Been Assigned " + players[i].skill + " Skill Points");  
         }
      }
      DrawPhase(competitors:Array<Player>) //Can Certainly Become More Dynamic
@@ -69,7 +70,7 @@ import { CreatePlayer } from './playerFactory';
         {
             case 8:
                 {
-                    console.log("DRAW PHASE 8");
+                    logToFile("DRAW PHASE 8");
 
                     this.pairsArray.push(this.pair_1);
                     this.pairsArray[0] = [competitors[0], competitors[1]];
@@ -87,7 +88,7 @@ import { CreatePlayer } from './playerFactory';
 
                 case 4:
                 {
-                    console.log("DRAW PHASE 4");
+                    logToFile("DRAW PHASE 4");
 
                     this.pairsArray.push(this.pair_1);
                     this.pairsArray[0] = [competitors[0], competitors[1]];
@@ -100,7 +101,7 @@ import { CreatePlayer } from './playerFactory';
 
                 case 2:
                 {
-                    console.log("DRAW PHASE 2");
+                    logToFile("DRAW PHASE 2");
                     
                     this.pairsArray.push(this.pair_1);
                     this.pairsArray[0] = [competitors[0], competitors[1]];

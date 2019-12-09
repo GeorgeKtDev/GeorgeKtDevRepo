@@ -4,7 +4,7 @@
   "description": "All-Purpose Repo",
   "main": "gameplay.js",
   "scripts": {
-    "start": "concurrently \"npm run tsc:w\" \"node ./dist/gameplay.js\"",   
+    "start": "node ./dist/gameplay.js",
     "tsc": "tsc",
     "tsc:w": "tsc -w"
   },

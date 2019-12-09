@@ -1,26 +1,14 @@
 import * as fs from "fs";
 
-export function logToText(output)
+export function logToFile(output)
 {
+    let path = '../log.txt';
 
-//     const { exec } = require('child_process');
-// exec('tsc *.js > log.txt | wc -l', (err, stdout, stderr) => {
-//   if (err) {
-//     // node couldn't execute the command
-//     return;
-//   }
+    //var access = fs.appendFile(path, output, );
+    //access.write(output);
 
-//   // the *entire* stdout and stderr (buffered)
-//   console.log(`stdout: ${stdout}`);
-//   console.log(`stderr: ${stderr}`);
-// });
+    //fs.writeFile(path, '', function(){console.log('done')}) Should Be Clearing Somewhere Along
+    var access = fs.appendFileSync(path, output + "\n");
 
-    // write to a new file named log.txt
-    fs.appendFile('log.txt', output, (err) => {
-        // throws an error, you could also catch it here
-        if (err) throw err;
-
-        // success case, the file was saved
-        console.log(output);
-    });
+    console.log(output);
 }

@@ -1,1 +1,325 @@
-[object Object] 1, Thodoris Goes Firstt Object],[object Object][object Object],[object Object],[object Object],[object Object][object Object],[object Object][object Object][object Object],[object Object],[object Object],[object Object][object Object],[object Object][object Object][object Object],[object Object],[object Object],[object Object][object Object],[object Object][object Object][object Object],[object Object],[object Object],[object Object][object Object],[object Object][object Object][object Object],[object Object],[object Object],[object Object][object Object],[object Object][object Object][object Object],[object Object][object Object],[object Object],[object Object],[object Object][object Object][object Object],[object Object],[object Object],[object Object][object Object],[object Object][object Object][object Object],[object Object],[object Object],[object Object][object Object],[object Object][object Object]
+Andreas_T Has Been Assigned 2 Skill Points
+Thodoris Has Been Assigned 8 Skill Points
+Yannis Has Been Assigned 9 Skill Points
+Ioannis Has Been Assigned 2 Skill Points
+Konstantinos Has Been Assigned 6 Skill Points
+Andreas_K Has Been Assigned 10 Skill Points
+Theofilos Has Been Assigned 9 Skill Points
+George Has Been Assigned 4 Skill Points
+DRAW PHASE 8
+Coin Flipped At 2, Thodoris Goes First
+Thodoris Shoots
+Thodoris Gets The Point.
+Current Score: 0 : 1
+Andreas_T Gets The Point.
+Current Score: 1 : 1
+Thodoris Gets The Point.
+Current Score: 1 : 2
+Andreas_T Gets The Point.
+Current Score: 2 : 2
+Thodoris Gets The Point.
+Current Score: 2 : 3
+Andreas_T Gets The Point.
+Current Score: 3 : 3
+Thodoris Gets The Point.
+Current Score: 3 : 4
+Andreas_T Gets The Point.
+Current Score: 4 : 4
+Thodoris Gets The Point.
+Current Score: 4 : 5
+Thodoris Gets The Point.
+Current Score: 4 : 6
+Thodoris Wins The Set
+Current Set: 1
+Andreas_T Gets The Point.
+Current Score: 1 : 0
+Andreas_T Gets The Point.
+Current Score: 2 : 0
+Thodoris Gets The Point.
+Current Score: 2 : 1
+Thodoris Gets The Point.
+Current Score: 2 : 2
+Andreas_T Gets The Point.
+Current Score: 3 : 2
+Andreas_T Gets The Point.
+Current Score: 4 : 2
+Thodoris Gets The Point.
+Current Score: 4 : 3
+Andreas_T Gets The Point.
+Current Score: 5 : 3
+Thodoris Gets The Point.
+Current Score: 5 : 4
+Thodoris Gets The Point.
+Current Score: 5 : 5
+Thodoris Gets The Point.
+Current Score: 5 : 6
+Thodoris Wins The Set
+Current Set: 2
+Thodoris Wins The Game!
+Pair Winner Thodoris
+Coin Flipped At 1, Konstantinos Goes First
+Konstantinos Shoots
+Ioannis Gets The Point.
+Current Score: 0 : 1
+Konstantinos Gets The Point.
+Current Score: 1 : 1
+Ioannis Gets The Point.
+Current Score: 1 : 2
+Ioannis Gets The Point.
+Current Score: 1 : 3
+Ioannis Gets The Point.
+Current Score: 1 : 4
+Konstantinos Gets The Point.
+Current Score: 2 : 4
+Ioannis Gets The Point.
+Current Score: 2 : 5
+Konstantinos Gets The Point.
+Current Score: 3 : 5
+Ioannis Gets The Point.
+Current Score: 3 : 6
+Ioannis Wins The Set
+Current Set: 1
+Ioannis Gets The Point.
+Current Score: 0 : 1
+Konstantinos Gets The Point.
+Current Score: 1 : 1
+Konstantinos Gets The Point.
+Current Score: 2 : 1
+Konstantinos Gets The Point.
+Current Score: 3 : 1
+Konstantinos Gets The Point.
+Current Score: 4 : 1
+Ioannis Gets The Point.
+Current Score: 4 : 2
+Konstantinos Gets The Point.
+Current Score: 5 : 2
+Ioannis Gets The Point.
+Current Score: 5 : 3
+Konstantinos Gets The Point.
+Current Score: 6 : 3
+Konstantinos Wins The Set
+Current Set: 2
+Ioannis Gets The Point.
+Current Score: 0 : 1
+Ioannis Gets The Point.
+Current Score: 0 : 2
+Ioannis Gets The Point.
+Current Score: 0 : 3
+Ioannis Gets The Point.
+Current Score: 0 : 4
+Ioannis Gets The Point.
+Current Score: 0 : 5
+Konstantinos Gets The Point.
+Current Score: 1 : 5
+Ioannis Gets The Point.
+Current Score: 1 : 6
+Ioannis Wins The Set
+Current Set: 3
+Ioannis Wins The Game!
+Pair Winner Ioannis
+Coin Flipped At 2, Theofilos Goes First
+Theofilos Shoots
+George Gets The Point.
+Current Score: 1 : 0
+George Gets The Point.
+Current Score: 2 : 0
+Theofilos Gets The Point.
+Current Score: 2 : 1
+George Gets The Point.
+Current Score: 3 : 1
+George Gets The Point.
+Current Score: 4 : 1
+Theofilos Gets The Point.
+Current Score: 4 : 2
+Theofilos Gets The Point.
+Current Score: 4 : 3
+George Gets The Point.
+Current Score: 5 : 3
+Theofilos Gets The Point.
+Current Score: 5 : 4
+George Gets The Point.
+Current Score: 6 : 4
+George Wins The Set
+Current Set: 1
+Theofilos Gets The Point.
+Current Score: 0 : 1
+George Gets The Point.
+Current Score: 1 : 1
+George Gets The Point.
+Current Score: 2 : 1
+George Gets The Point.
+Current Score: 3 : 1
+Theofilos Gets The Point.
+Current Score: 3 : 2
+George Gets The Point.
+Current Score: 4 : 2
+Theofilos Gets The Point.
+Current Score: 4 : 3
+Theofilos Gets The Point.
+Current Score: 4 : 4
+Theofilos Gets The Point.
+Current Score: 4 : 5
+George Gets The Point.
+Current Score: 5 : 5
+George Gets The Point.
+Current Score: 6 : 5
+George Wins The Set
+Current Set: 2
+George Wins The Game!
+Pair Winner George
+Coin Flipped At 1, Yannis Goes First
+Yannis Shoots
+Yannis Gets The Point.
+Current Score: 1 : 0
+Yannis Gets The Point.
+Current Score: 2 : 0
+Yannis Gets The Point.
+Current Score: 3 : 0
+Yannis Gets The Point.
+Current Score: 4 : 0
+Yannis Gets The Point.
+Current Score: 5 : 0
+Yannis Gets The Point.
+Current Score: 6 : 0
+Yannis Wins The Set
+Current Set: 1
+Yannis Gets The Point.
+Current Score: 1 : 0
+Yannis Gets The Point.
+Current Score: 2 : 0
+Yannis Gets The Point.
+Current Score: 3 : 0
+Yannis Gets The Point.
+Current Score: 4 : 0
+Yannis Gets The Point.
+Current Score: 5 : 0
+Yannis Gets The Point.
+Current Score: 6 : 0
+Yannis Wins The Set
+Current Set: 2
+Yannis Wins The Game!
+Pair Winner Yannis
+DRAW PHASE 4
+Coin Flipped At 1, Ioannis Goes First
+Ioannis Shoots
+George Gets The Point.
+Current Score: 0 : 1
+George Gets The Point.
+Current Score: 0 : 2
+Ioannis Gets The Point.
+Current Score: 1 : 2
+George Gets The Point.
+Current Score: 1 : 3
+Ioannis Gets The Point.
+Current Score: 2 : 3
+George Gets The Point.
+Current Score: 2 : 4
+George Gets The Point.
+Current Score: 2 : 5
+George Gets The Point.
+Current Score: 2 : 6
+George Wins The Set
+Current Set: 1
+George Gets The Point.
+Current Score: 0 : 1
+Ioannis Gets The Point.
+Current Score: 1 : 1
+George Gets The Point.
+Current Score: 1 : 2
+George Gets The Point.
+Current Score: 1 : 3
+George Gets The Point.
+Current Score: 1 : 4
+George Gets The Point.
+Current Score: 1 : 5
+George Gets The Point.
+Current Score: 1 : 6
+George Wins The Set
+Current Set: 2
+George Wins The Game!
+Pair Winner George
+Coin Flipped At 1, Yannis Goes First
+Yannis Shoots
+Thodoris Gets The Point.
+Current Score: 0 : 1
+Thodoris Gets The Point.
+Current Score: 0 : 2
+Yannis Gets The Point.
+Current Score: 1 : 2
+Yannis Gets The Point.
+Current Score: 2 : 2
+Thodoris Gets The Point.
+Current Score: 2 : 3
+Yannis Gets The Point.
+Current Score: 3 : 3
+Yannis Gets The Point.
+Current Score: 4 : 3
+Yannis Gets The Point.
+Current Score: 5 : 3
+Yannis Gets The Point.
+Current Score: 6 : 3
+Yannis Wins The Set
+Current Set: 1
+Yannis Gets The Point.
+Current Score: 1 : 0
+Thodoris Gets The Point.
+Current Score: 1 : 1
+Yannis Gets The Point.
+Current Score: 2 : 1
+Yannis Gets The Point.
+Current Score: 3 : 1
+Thodoris Gets The Point.
+Current Score: 3 : 2
+Yannis Gets The Point.
+Current Score: 4 : 2
+Yannis Gets The Point.
+Current Score: 5 : 2
+Yannis Gets The Point.
+Current Score: 6 : 2
+Yannis Wins The Set
+Current Set: 2
+Yannis Wins The Game!
+Pair Winner Yannis
+DRAW PHASE 2
+Coin Flipped At 1, Yannis Goes First
+Yannis Shoots
+Yannis Gets The Point.
+Current Score: 1 : 0
+Yannis Gets The Point.
+Current Score: 2 : 0
+George Gets The Point.
+Current Score: 2 : 1
+Yannis Gets The Point.
+Current Score: 3 : 1
+George Gets The Point.
+Current Score: 3 : 2
+Yannis Gets The Point.
+Current Score: 4 : 2
+Yannis Gets The Point.
+Current Score: 5 : 2
+George Gets The Point.
+Current Score: 5 : 3
+George Gets The Point.
+Current Score: 5 : 4
+Yannis Gets The Point.
+Current Score: 6 : 4
+Yannis Wins The Set
+Current Set: 1
+Yannis Gets The Point.
+Current Score: 1 : 0
+Yannis Gets The Point.
+Current Score: 2 : 0
+George Gets The Point.
+Current Score: 2 : 1
+Yannis Gets The Point.
+Current Score: 3 : 1
+Yannis Gets The Point.
+Current Score: 4 : 1
+Yannis Gets The Point.
+Current Score: 5 : 1
+Yannis Gets The Point.
+Current Score: 6 : 1
+Yannis Wins The Set
+Current Set: 2
+Yannis Wins The Game!
+Pair Winner Yannis
