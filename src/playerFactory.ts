@@ -1,16 +1,9 @@
 import { Player } from "./player";
 
-export function CreatePlayer(name)
+export function CreatePlayers(roster:Array<Player> ,names:Array<string>)
 {
-        return new Player(name);
-
-        //If We Had More "Player Types We Could Switch"
-
-        // switch(name) 
-        // {
-        //    case "Player":
-        //     {
-        //         return new Player(name);
-        //     }
-        // }
+        for(let i = 0; i < names.length; i++)
+        {
+               roster.push(new Player(names[i]));
+        }
 }

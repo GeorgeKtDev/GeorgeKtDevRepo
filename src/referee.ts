@@ -11,11 +11,8 @@ export class Referee
     playerWhoServes:string;
     playerWhoShoots:string;
 
-    currentMatchScore_1:number;
-    currentMatchScore_2:number;
-
-    currentMatchSets_1:number;
-    currentMatchSets_2:number;
+    currentMatchScoreBoard:Array<number>;
+    currentMatchSetBoard:Array<number>;
 
     shotPowerLogger:number;
 
@@ -29,11 +26,8 @@ export class Referee
         this.coinFlip = 0;
         this.numberOfSets = 0;
 
-        this.currentMatchScore_1 = 0;
-        this.currentMatchScore_2 = 0;
-
-        this.currentMatchSets_1 = 0;
-        this.currentMatchSets_2 = 0;
+        this.currentMatchScoreBoard = [0, 0];
+        this.currentMatchSetBoard = [0, 0];
 
         this.pairsIndex = 0;
 
@@ -49,94 +43,68 @@ export class Referee
             let whoGoesFirst: Player;
             let whoGoesSecond: Player;
 
-            if (this.coinFlip == 1) {
+            whoGoesFirst = pair[this.coinFlip];
+            whoGoesSecond = pair[this.coinFlip - 1];     
 
-                whoGoesFirst = pair[0];
-                whoGoesSecond = pair[1];
-
-                logToFile("Coin Flipped At " + Math.floor(this.coinFlip) + ", " + whoGoesFirst.name + " Goes First");
-
-            } else {            
-                whoGoesFirst = pair[1];
-                whoGoesSecond = pair[0];
-
-                logToFile("Coin Flipped At " + Math.floor(this.coinFlip) + ", " + whoGoesFirst.name + " Goes First");
-            }
+            logToFile("Coin Flipped At " + Math.floor(this.coinFlip) + ", " + whoGoesFirst.name + " Goes First");
 
             this.playerWhoServes = this.playerWhoShoots = whoGoesFirst.name;
-    
+
             logToFile(this.playerWhoShoots + " Shoots");
-            
-            /* 
-            1) Some Player Throws
-            2) The Other One Defends
-            3) The Point Is Given To Whomever Wins The "Defend() Argument" 
-            */
 
             this.GivePoint(pair, whoGoesSecond.Defend(whoGoesFirst.Throw()));
 
             this.playerWhoShoots = whoGoesSecond.name;
 
-            logToFile("Current Score: " + this.currentMatchScore_1 + " : " + this.currentMatchScore_2);
+            logToFile("Current Score: " + this.currentMatchScoreBoard[0] + " : " + this.currentMatchScoreBoard[1]);
 
             return this.playerWhoShoots;
         }
     }
     GivePoint(pair:Array<Player>, defenceFlag:boolean):void
-    {
-        if(defenceFlag)
-        {
-            logToFile(pair[0].name + " Gets The Point.");
-
-            this.currentMatchScore_1++;
-        }else
-        {
-            logToFile(pair[1].name + " Gets The Point.");
-
-            this.currentMatchScore_2++;
-        }
+    {    
+        logToFile(pair[+!defenceFlag].name + " Gets The Point."); //We Use The Flag's Value As Index To "pair" Array, Since It's A 2 Values Array
+        this.currentMatchScoreBoard[+!defenceFlag]++;       
     }
-    CheckCurrentScore(pair:Array<Player>)
+    CheckCurrentScore(pair:Array<Player>) //Needs To Be Shortened
     {
-        logToFile("Current Score: " + this.currentMatchScore_1 + " : " + this.currentMatchScore_2);
+        logToFile("Current Score: " + this.currentMatchScoreBoard[0] + " : " + this.currentMatchScoreBoard[1]);
 
-        if(this.currentMatchScore_1 > 5)
+        if(this.currentMatchScoreBoard[0] > 5)
         {
             logToFile(pair[0].name + " Wins The Set");
-            logToFile("Current Set: " + (this.currentMatchSets_1 + this.currentMatchSets_2 + 1));
+            logToFile("Current Set: " + (this.currentMatchSetBoard[0] + this.currentMatchSetBoard[1] + 1));
 
-            this.currentMatchSets_1++;
+            this.currentMatchSetBoard[0]++;
 
-            this.currentMatchScore_1 = 0;
-            this.currentMatchScore_2 = 0;
+            this.currentMatchScoreBoard[0] = 0;
+            this.currentMatchScoreBoard[1] = 0;
         }
-        else if(this.currentMatchScore_2 > 5)
+        else if(this.currentMatchScoreBoard[1] > 5)
         {
             logToFile(pair[1].name +" Wins The Set");
-            logToFile("Current Set: " + (this.currentMatchSets_1 + this.currentMatchSets_2 + 1));
+            logToFile("Current Set: " + (this.currentMatchSetBoard[0] + this.currentMatchSetBoard[1] + 1));
             
-            this.currentMatchSets_2++;
+            this.currentMatchSetBoard[1]++;
 
-            this.currentMatchScore_1 = 0;
-            this.currentMatchScore_2 = 0;
+            this.currentMatchScoreBoard[0] = 0;
+            this.currentMatchScoreBoard[1] = 0;
         }
     }
     CheckForWinners(pair:Array<Player>):boolean
     {
-        if(this.currentMatchSets_1 >= 2)
+        if(this.currentMatchSetBoard[0] >= 2 && this.currentMatchSetBoard[1] < 2)
         {
             this.pairWinner = pair[0];
 
-            return true;
-        }else if (this.currentMatchSets_2 >= 2)
-        {
-            this.pairWinner = pair[1];
-
-            return true;
+            return true;        
         }
+
+        this.pairWinner = pair[1];    
+
         return false;
     }
-    MatchLoop(pair:Array<Player>)
+    MatchLoop(pair:Array<Player>) 
     {
         while(!this.CheckForWinners(pair))
         {
@@ -160,8 +128,8 @@ export class Referee
         }
         logToFile(this.pairWinner.name + " Wins The Game!");
 
-        this.currentMatchSets_1 = 0;
-        this.currentMatchSets_2 = 0;
+        this.currentMatchSetBoard[0] = 0;
+        this.currentMatchSetBoard[1] = 0;
 
         logToFile("Pair Winner " + this.pairWinner.name);
         this.qualifiedPlayers.push(this.pairWinner);
